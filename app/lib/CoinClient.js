@@ -18,7 +18,7 @@ const STATE_READ_MSG = 1;
 class MessageHeader {
   constructor(headerBuffer) {
     let offset = 0;
-    const validMagic = _.reduce(_.map(config.vertcoin.magic, (it) => it === headerBuffer.readUInt8(offset++)), (acc, it) => acc && it);
+    const validMagic = _.reduce(_.map(config.coin.magic, (it) => it === headerBuffer.readUInt8(offset++)), (acc, it) => acc && it);
 
     this.invalidMaigc = !validMagic;
 
@@ -119,7 +119,7 @@ class Message {
   }
 }
 
-class VertcoinClient extends EventEmitter {
+class CoinClient extends EventEmitter {
 
   constructor(options) {
     super();
@@ -215,7 +215,7 @@ class VertcoinClient extends EventEmitter {
   }
 
   /**
-   * Connects to Vertcoin Node
+   * Connects to Coin Node
    * @param host hostname or ip
    * @param port port to connect to
    * @returns {Promise} resolves when connected
@@ -271,7 +271,7 @@ class VertcoinClient extends EventEmitter {
     offset += 16;
 
     // addr_recv port
-    buf.writeUInt16BE(config.vertcoin.port & 0xFFFF, offset);
+    buf.writeUInt16BE(config.coin.port & 0xFFFF, offset);
     offset += 2;
 
     // addr_trans services
@@ -315,10 +315,10 @@ class VertcoinClient extends EventEmitter {
     let offset = 0;
 
     if (command.length > 12)
-      throw new Error('VertcoinClient command is to long');
+      throw new Error('CoinClient command is to long');
 
     // Magic
-    _.forEach(config.vertcoin.magic, (it) => {
+    _.forEach(config.coin.magic, (it) => {
       buf.writeUInt8(it, offset++);
     });
 
@@ -348,4 +348,4 @@ class VertcoinClient extends EventEmitter {
 
 }
 
-module.exports = VertcoinClient;
+module.exports = CoinClient;

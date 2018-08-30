@@ -2,18 +2,12 @@
 <mat-toolbar id="toolbar" color="primary">
   {{title}}
   <div fxHide.lt-sm="true">
-    <button mat-button (click)="openPools()">POOLS</button>
-    <button mat-button (click)="openNodes()">NODES</button>
-    <button mat-button (click)="openMining()">START MINING</button>
   </div>
   <span class="toolbar-spacer"></span>
   <button fxHide="true" fxShow.lt-sm="true" id="menuBtn" mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon svgIcon="menu"></mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="openPools()">POOLS</button>
-    <button mat-menu-item (click)="openNodes()">NODES</button>
-    <button mat-menu-item (click)="openMining()">START MINING</button>
   </mat-menu>
 </mat-toolbar>
 
@@ -31,31 +25,19 @@
 <div id="footer" color="primary">
   GET INVOLVED
   <div class="button-row" fxHide.lt-sm="true">
-    <button mat-fab (click)="openLink('https://discord.gg/SUy9Hsr')">
-      <mat-icon svgIcon="discord"></mat-icon>
-    </button>
-    <button mat-fab (click)="openLink('https://www.reddit.com/r/vertcoin')">
+    <button mat-fab (click)="openLink('https://www.reddit.com/r/digibyte')">
       <mat-icon svgIcon="reddit"></mat-icon>
     </button>
-    <button mat-fab (click)="openDonate()">
-      <mat-icon svgIcon="donate"></mat-icon>
-    </button>
-    <button mat-fab (click)="openLink('https://github.com/Gehhilfe/vtc-scanner')">
+    <button mat-fab (click)="openLink('https://github.com/digicontributer/dgb-scanner')">
       <mat-icon svgIcon="github"></mat-icon>
     </button>
   </div>
 
   <div class="button-row-mobile" fxHide fxShow.lt-sm="true">
-    <button mat-mini-fab (click)="openLink('https://discord.gg/SUy9Hsr')">
-      <mat-icon svgIcon="discord"></mat-icon>
-    </button>
-    <button mat-mini-fab (click)="openLink('https://www.reddit.com/r/vertcoin')">
+    <button mat-mini-fab (click)="openLink('https://www.reddit.com/r/digibyte')">
       <mat-icon svgIcon="reddit"></mat-icon>
     </button>
-    <button mat-mini-fab (click)="openDonate()">
-      <mat-icon svgIcon="donate"></mat-icon>
-    </button>
-    <button mat-mini-fab (click)="openLink('https://github.com/Gehhilfe/vtc-scanner')">
+    <button mat-mini-fab (click)="openLink('https://github.com/digicontributer/dgb-scanner')">
       <mat-icon svgIcon="github"></mat-icon>
     </button>
   </div>

@@ -6,13 +6,13 @@ const path = require('path');
 const rootPath = path.normalize(__dirname + '/..');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
-const NODE_HOST = process.env.NODE_HOST || '127.0.0.1';
-const NODE_PORT = process.env.NODE_PORT || 8080;
+const NODE_HOST = process.env.NODE_HOST || '0.0.0.0';
+const NODE_PORT = process.env.NODE_PORT || 9000;
 const MONGO_HOST = process.env.MONGO_HOST || '127.0.0.1';
 const MONGO_PORT = process.env.MONGO_PORT || 27017;
 const LOG_LEVEL = process.env.LOG_LEVEL || 'info';
 
-const APP_NAME = 'vtc-scanner-';
+const APP_NAME = 'dgb-node-scanner-';
 
 const config = {
   development: {
@@ -34,27 +34,23 @@ const config = {
     },
     p2pool: {
       net1: {
-        seeds: 'vtc.alwayshashing.com crypto.office-on-the.net pool.vtconline.org p2pool.kosmoplovci.org uk1.vtconline.org pool.boxienet.net'.split(' '),
-        port: 9171
+        seeds: 'crypto.office-on-the.net pool.boxienet.net'.split(' '),
+        port: 5029
       },
       net2: {
-        seeds: 'vtc2.alwayshashing.com pool.vtconline.org uk1.vtconline.org pool.boxienet.net'.split(' '),
-        port: 9181
+        seeds: 'crypto.office-on-the.net pool.boxienet.net'.split(' '),
+        port: 5029
       }
     },
-    vertcoin: {
+    coin: {
       seeds: [
-        'useast1.vtconline.org',
-        'fr1.vtconline.org',
-        'uk1.vtconline.org',
-        'vtc.alwayshashing.com',
-        'explorer.vertcoin.info',
-        'p2pool.kosmoplovci.org',
-        'crypto.office-on-the.net',
-        'mail.hoosieryouth.org'
+        'digiexplorer.info',
+        'seed.digibyteprojects.com',
+        'seed.digibyte.co',
+        'seed.digibyte.io'
       ],
-      port: 5889,
-      magic: [0xfa, 0xbf, 0xb5, 0xda]
+      port: 12024,
+      magic: [0xfa, 0xc3, 0xb6, 0xda]
     }
   },
   test: {
@@ -76,27 +72,23 @@ const config = {
     },
     p2pool: {
       net1: {
-        seeds: 'vtc.alwayshashing.com crypto.office-on-the.net pool.vtconline.org p2pool.kosmoplovci.org uk1.vtconline.org pool.boxienet.net'.split(' '),
-        port: 9171
+        seeds: 'crypto.office-on-the.net pool.boxienet.net'.split(' '),
+        port: 5029
       },
       net2: {
-        seeds: 'vtc2.alwayshashing.com pool.vtconline.org uk1.vtconline.org pool.boxienet.net'.split(' '),
-        port: 9181
+        seeds: 'crypto.office-on-the.net pool.boxienet.net'.split(' '),
+        port: 5029
       }
     },
-    vertcoin: {
+    coin: {
       seeds: [
-        'useast1.vtconline.org',
-        'fr1.vtconline.org',
-        'uk1.vtconline.org',
-        'vtc.alwayshashing.com',
-        'explorer.vertcoin.info',
-        'p2pool.kosmoplovci.org',
-        'crypto.office-on-the.net',
-        'mail.hoosieryouth.org'
+        'digiexplorer.info',
+        'seed.digibyteprojects.com',
+        'seed.digibyte.co',
+        'seed.digibyte.io'
       ],
-      port: 5889,
-      magic: [0xfa, 0xbf, 0xb5, 0xda]
+      port: 12024,
+      magic: [0xfa, 0xc3, 0xb6, 0xda]
     }
   },
   production: {
@@ -118,27 +110,23 @@ const config = {
     },
     p2pool: {
       net1: {
-        seeds: 'vtc.alwayshashing.com crypto.office-on-the.net pool.vtconline.org p2pool.kosmoplovci.org uk1.vtconline.org pool.boxienet.net'.split(' '),
-        port: 9171
+        seeds: 'crypto.office-on-the.net pool.boxienet.net'.split(' '),
+        port: 5029
       },
       net2: {
-        seeds: 'vtc2.alwayshashing.com pool.vtconline.org uk1.vtconline.org pool.boxienet.net'.split(' '),
-        port: 9181
+        seeds: 'crypto.office-on-the.net pool.boxienet.net'.split(' '),
+        port: 5029
       }
     },
-    vertcoin: {
+    coin: {
       seeds: [
-        'useast1.vtconline.org',
-        'fr1.vtconline.org',
-        'uk1.vtconline.org',
-        'vtc.alwayshashing.com',
-        'explorer.vertcoin.info',
-        'p2pool.kosmoplovci.org',
-        'crypto.office-on-the.net',
-        'mail.hoosieryouth.org'
+        'digiexplorer.info',
+        'seed.digibyteprojects.com',
+        'seed.digibyte.co',
+        'seed.digibyte.io'
       ],
-      port: 5889,
-      magic: [0xfa, 0xbf, 0xb5, 0xda]
+      port: 12024,
+      magic: [0xfa, 0xc3, 0xb6, 0xda]
     }
   }
 };

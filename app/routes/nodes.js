@@ -11,7 +11,9 @@ module.exports = (server) => {
       'location.coordinates': {$ne: [0,0]}
     }).select({
       userAgent: 1,
-      location: 1
+      location: 1,
+      ip: 1,
+      version: 1
     }));
     return next();
   });

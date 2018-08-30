@@ -9,7 +9,6 @@ import {
   MatTabsModule, MatButtonToggleModule, MatCardModule, MatDialogModule, MatProgressSpinnerModule, MatStepperModule,
   MatIconRegistry, MatMenuModule, MatSelectModule
 } from "@angular/material";
-import {PoolTableComponent} from './pool-table/pool-table.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {AddPoolFormComponent} from './add-pool-form/add-pool-form.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -22,51 +21,31 @@ import {TimesPipe} from './times.pipe';
 import {ChartComponent} from './chart/chart.component';
 import {StatsService} from "./stats.service";
 import {ChartsModule} from "ng2-charts";
-import {PoolComponent} from './pool/pool.component';
 import {RouterModule, Routes} from "@angular/router";
-import {MiningComponent} from './mining/mining.component';
 import {NodeComponent} from './node/node.component';
 import {AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';
 import {NodeService} from "./node.service";
 import {AgmJsMarkerClustererModule, ClusterManager} from '@agm/js-marker-clusterer';
-import { DonateDialogComponent } from './donate-dialog/donate-dialog.component';
 import {ClipboardModule} from "ngx-clipboard/dist";
 import {HttpModule} from "@angular/http";
 import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   {
-    path: 'pools',
-    component: PoolComponent
-  },
-  {
-    path: 'mining',
-    component: MiningComponent
-  },
-  {
     path: 'nodes',
     component: NodeComponent
-  },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '/pools'
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    PoolTableComponent,
     AddPoolFormComponent,
     HashRatePipe,
     UptimePipe,
     TimesPipe,
     ChartComponent,
-    PoolComponent,
-    MiningComponent,
     NodeComponent,
-    DonateDialogComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -106,11 +85,7 @@ const appRoutes: Routes = [
     MatStepperModule,
     RouterModule.forRoot(appRoutes)
   ],
-  entryComponents: [
-    DonateDialogComponent
-  ],
   providers: [
-    PoolService,
     StatsService,
     NodeService,
     ClusterManager,

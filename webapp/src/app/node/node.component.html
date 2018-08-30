@@ -3,15 +3,16 @@
   <div fxFlex="75" fxFlex.lt-lg="" class="box">
     <mat-card>
       <mat-card-header>
-        <mat-card-title>Vertcoin Nodes Worldwide</mat-card-title>
+        <mat-card-title>DigiByte Nodes Worldwide</mat-card-title>
         <mat-card-subtitle>Start your own node and support the network!</mat-card-subtitle>
       </mat-card-header>
-      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="1" class="agm-map" ngClass.lt-md="agm-map-sm">
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="1" class="agm-map" ngClass.lt-md="agm-map-sm" style="color: '#fff !important'">
         <agm-marker-cluster [imagePath]="'assets/m'">
         <ng-template ngFor let-node [ngForOf]="nodes">
           <agm-marker [latitude]="node.location.coordinates[1]"
                       [longitude]="node.location.coordinates[0]"
-                      [iconUrl]="'assets/vtc_small.png'"></agm-marker>
+                      [iconUrl]="'assets/dgb_small.png'"
+                    ></agm-marker>
         </ng-template>
         </agm-marker-cluster>
       </agm-map>
@@ -19,3 +20,28 @@
   </div>
   <div fxFlex fxHide.lt-lg="true"></div>
 </div>
+<div fxLayout="row">
+  <h1 style="text-align: center; width: 100%">Nodes By Version</h1>
+</div> 
+<div fxLayout="row">
+    <div fxFlex fxHide.lt-lg="true"></div>
+    <div fxFlex="50" fxFlex.lt-lg="">
+        <mat-table [dataSource]="typeSource">
+  
+          <ng-container matColumnDef="version">
+            <mat-header-cell *matHeaderCellDef > Version </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.version}} </mat-cell>
+          </ng-container>
+        
+          <ng-container matColumnDef="count">
+            <mat-header-cell *matHeaderCellDef> Count </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.count}} </mat-cell>
+          </ng-container>
+
+        
+          <mat-header-row *matHeaderRowDef="['version', 'count']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['version', 'count']"></mat-row>
+    </mat-table>
+    </div>
+    <div fxFlex fxHide.lt-lg="true"></div>
+  </div>

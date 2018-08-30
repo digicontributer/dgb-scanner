@@ -11,6 +11,11 @@ export interface NodeDto extends LatLng {
   }
 }
 
+export interface NodesByType {
+  userAgent: string,
+  count: number
+}
+
 @Injectable()
 export class NodeService {
 

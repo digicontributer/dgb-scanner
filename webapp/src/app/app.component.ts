@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {MatDialog, MatIconRegistry} from "@angular/material";
-import {DonateDialogComponent} from "./donate-dialog/donate-dialog.component";
 import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
@@ -10,7 +9,7 @@ import {DomSanitizer} from "@angular/platform-browser";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Vertcoin Scanner';
+  title = 'DigiByte Node Scanner';
 
   constructor(private router: Router, private dialog: MatDialog,
               private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
@@ -29,22 +28,6 @@ export class AppComponent {
     this.iconRegistry.addSvgIcon('menu',
       sanitizer.bypassSecurityTrustResourceUrl('/assets/menu.svg'));
   };
-
-  openPools() {
-    this.router.navigate(['pools']);
-  }
-
-  openNodes() {
-    this.router.navigate(['nodes']);
-  }
-
-  openMining() {
-    this.router.navigate(['mining']);
-  }
-
-  openDonate() {
-    this.dialog.open(DonateDialogComponent);
-  }
 
   openLink(url: string) {
     window.location.href = url;

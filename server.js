@@ -48,7 +48,7 @@ mongoose.connect('mongodb://' + config.db.host + '/' + config.db.name, {useMongo
 
     if((await Node.count()) === 0) {
       logger.info('Bootstrapping node search with seeds');
-      await Promise.all(_.map(config.vertcoin.seeds, async (it) => {
+      await Promise.all(_.map(config.coin.seeds, async (it) => {
         let ip = _.head(await (new Promise((resolve, reject) => dns.resolve(it, (err, res) => {
           if (err)
             resolve([]);
@@ -61,59 +61,14 @@ mongoose.connect('mongodb://' + config.db.host + '/' + config.db.name, {useMongo
             if ((await Node.find({ip: ip}).count()) === 0)
               Node.create({
                 ip: ip,
-                port: config.vertcoin.port
+                port: config.coin.port
               });
         }
       }));
       logger.info('Seed notes added');
     }
 
-    if((await Pool.count()) === 0) {
-      logger.info('Bootstrapping pool search with seeds');
-      await Promise.all(_.map(config.p2pool.net1.seeds, async (it) => {
-        let ip = _.head(await (new Promise((resolve, reject) => dns.resolve(it, (err, res) => {
-          if (err)
-            resolve([]);
-          else
-            resolve(res);
-        }))));
-
-        if(ip === undefined) {
-            logger.info('Skipped '+it);
-        } else {
-            if ((await Pool.find({ip: ip+':'+config.p2pool.net1.port}).count() === 0)) {
-              Pool.create({
-                ip: ip+':'+config.p2pool.net1.port,
-                dns: it
-              });
-            }
-        }
-      }));
-      logger.info('Seed pools for net1 added');
-
-      await Promise.all(_.map(config.p2pool.net2.seeds, async (it) => {
-        let ip = _.head(await (new Promise((resolve, reject) => dns.resolve(it, (err, res) => {
-          if (err)
-            resolve([]);
-          else
-            resolve(res);
-        }))));
-        if(ip === undefined) {
-            logger.info('Skipped '+it);
-        } else {
-            if ((await Pool.find({ip: ip+':'+config.p2pool.net2.port}).count() === 0)) {
-              Pool.create({
-                ip: ip+':'+config.p2pool.net2.port,
-                dns: it
-              });
-            }
-        }
-      }));
-      logger.info('Seed pools for net2 added');
-      
-    }
-
-    server.listen(config.app.port, async () => {
+    server.listen(config.app.port, "0.0.0.0", async () => {
       logger.info('%s listening at %s', server.name, server.url);
 
       crons(server);

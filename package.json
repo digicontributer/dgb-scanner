@@ -1,7 +1,7 @@
 {
-  "name": "vtc-scanner",
+  "name": "dgb-scanner",
   "version": "0.0.1",
-  "description": "Vertcoin node and p2pool scanner",
+  "description": "DigiByte node and p2pool scanner",
   "main": "server.js",
   "scripts": {
     "lint": "eslint *.js ./app/models/*.js ./app/routes/*.js ./config/*.js",
@@ -10,7 +10,7 @@
   "author": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Gehhilfe/vtc-scanner.git"
+    "url": "https://github.com/digicontributer/dgb-scanner.git"
   },
   "license": "MIT",
   "dependencies": {

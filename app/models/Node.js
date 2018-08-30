@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const geoip = require('geoip-lite');
 const dns = require('dns');
 
-const VertcoinClient = require('./../lib/VertcoinClient');
+const CoinClient = require('./../lib/CoinClient');
 
 const Schema = mongoose.Schema;
 const nodeSchema = new Schema({
@@ -41,7 +41,7 @@ class NodeClass {
     }
     const prom = new Promise(async (resolve, reject) => {
       try {
-        this.client = new VertcoinClient();
+        this.client = new CoinClient();
         this.client.on('message', (msg) => {
           try {
             if (msg.header.command === 'verack')
