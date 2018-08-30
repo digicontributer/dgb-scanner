@@ -28,7 +28,7 @@
     "@angular/router": "^5.1.1",
     "angular2-moment": "^1.7.0",
     "font-awesome": "^4.7.0",
-    "js-marker-clusterer": "^1.0.0",
+    "js-marker-clusterer": "git://github.com/digicontributer/js-marker-clusterer#0ac4a93a6302c078a1592ad120275ee3b8709ed6",
     "ng2-charts": "^1.6.0",
     "ngx-clipboard": "^8.1.1",
     "node-sass": "^4.5.3",
