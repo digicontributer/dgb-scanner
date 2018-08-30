@@ -43,7 +43,7 @@ export class NodeComponent implements OnInit {
       });
       const nodeVersions = Object.keys(types).map(key => {
         return { version: key, count: types[key] };
-      });
+      }).sort((a, b) => b['count'] - a['count']);
       this.dataSource = new ExampleDataSource(this.nodes, this.nodeService);
       this.typeSource = new MyDataSource(nodeVersions);
     });
