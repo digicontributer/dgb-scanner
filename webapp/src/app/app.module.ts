@@ -10,16 +10,9 @@ import {
   MatIconRegistry, MatMenuModule, MatSelectModule
 } from "@angular/material";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {AddPoolFormComponent} from './add-pool-form/add-pool-form.component';
 import {HttpClientModule} from "@angular/common/http";
-import {PoolService} from "./pool.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HashRatePipe} from './hash-rate.pipe';
-import {UptimePipe} from './uptime.pipe';
 import {MomentModule} from "angular2-moment";
-import {TimesPipe} from './times.pipe';
-import {ChartComponent} from './chart/chart.component';
-import {StatsService} from "./stats.service";
 import {ChartsModule} from "ng2-charts";
 import {RouterModule, Routes} from "@angular/router";
 import {NodeComponent} from './node/node.component';
@@ -32,7 +25,7 @@ import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   {
-    path: 'nodes',
+    path: '',
     component: NodeComponent
   }
 ];
@@ -40,11 +33,6 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    AddPoolFormComponent,
-    HashRatePipe,
-    UptimePipe,
-    TimesPipe,
-    ChartComponent,
     NodeComponent,
   ],
   imports: [
@@ -86,7 +74,6 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    StatsService,
     NodeService,
     ClusterManager,
     GoogleMapsAPIWrapper

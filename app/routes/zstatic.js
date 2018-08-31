@@ -8,9 +8,7 @@ module.exports = (server) => {
     file: 'index.html'
   });
 
-  server.get('/pools', serveIndex);
-  server.get('/nodes', serveIndex);
-  server.get('/mining', serveIndex);
+  server.get('/', serveIndex);
 
   server.get(/^\/*(?!api).*/y, restifyPlugins.serveStatic({
     directory: './webapp/dist',
